@@ -1,4 +1,4 @@
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container">
         <div class="stats row">
           <div class="col-md-4">
@@ -32,4 +32,43 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
+
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Testnet Status</h5>
+        <ul class="list-unstyled text-small">
+          <li>
+            <i class="fa fa-code-fork" aria-hidden="true"></i>&nbsp;Currently running: {{ version }}
+          </li>
+          <li>
+            <i class="fa fa-database" aria-hidden="true"></i>&nbsp;Block Height: {{ height }}
+          </li>
+          <li>
+            <i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Difficulty: {{ difficulty | floatformat:4 }}
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Payouts</h5>
+        <ul class="list-unstyled text-small">
+          <li>
+              <i class="fa fa-money" aria-hidden="true"></i>&nbsp;Payouts: {{ payouts }}
+          </li>
+            <li>
+              <i class="fa fa-usd" aria-hidden="true"></i>&nbsp;Transparent Balance: {{ balance.transparent | floatformat:3}} TAZ
+          </li>
+          <li>
+              <i class="fa fa-usd" aria-hidden="true"></i>&nbsp;Private Balance: {{ balance.private | floatformat:3}} TAZ
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
