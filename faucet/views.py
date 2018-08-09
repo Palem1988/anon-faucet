@@ -6,7 +6,7 @@ from django.utils import timezone
 import re
 from datetime import *
 
-from pyZcash.rpc.ZDaemon import *
+from pyZcash.pyZcash.rpc.ZDaemon import *
 from faucet.models import *
 
 
@@ -24,8 +24,8 @@ def index(request):
         hc = HealthCheck.objects.latest('timestamp')
         t_balance = hc.t_balance
         z_balance = hc.z_balance
-        print "T balance", t_balance
-        print " z balance", z_balance
+        print("T balance", t_balance)
+        print(" z balance", z_balance)
         balance = {'transparent': t_balance, 'private': z_balance}
         difficulty = hc.difficulty
         height = hc.height
@@ -47,8 +47,8 @@ def index(request):
             ip = request.META.get('HTTP_X_REAL_IP')
         ip = get_client_ip(request)
         address = request.POST.get('address', '')
-        print "IP: ", ip
-        print "address: ", address
+        print("IP: ", ip)
+        print("address: ", address)
         try:
             last_payout = Drip.objects.filter(Q(ip=ip) | Q(address=address)).order_by('-timestamp')[0]
             now = datetime.utcnow().replace(tzinfo=timezone.get_current_timezone())
@@ -81,11 +81,11 @@ def index(request):
                 sender = zaddrs[0]
                 msg = 'Thanks for using zfaucet!'
                 opid = zd.z_sendmany(sender, address, 1.0, msg)
-                print "OPID", opid
+                print("OPID", opid)
                 if opid != None and 'opid' in opid:
                         resp = zd.z_getoperationstatus(opid)
-                        print "Operation status response:", resp
-                        print "operation status: ", resp[0]['status']
+                        print("Operation status response:", resp)
+                        print("operation status: ", resp[0]['status'])
                         #why is it not working when it's executing?
                         if resp[0]['status'] == 'executing':
                             msg = "Sent! Get the status of your private payout with z_getoperationstatus '[\"{0}\"]'.".format(opid)
@@ -95,7 +95,7 @@ def index(request):
                             return render(request, 'faucet/faucet.html', {'version':version,'balance':balance,'difficulty':difficulty,'height':height, 'payouts':payouts, 'flash':True, 'message':msg})
         except:
             # TODO: Give better error if faucet is empty!
-            print "IN ERROR"
+            print("IN ERROR")
             msg = "Issue sending transaction.  Is your address correct?"
             return render(request, 'faucet/faucet.html', {'version':version,'balance':balance,'difficulty':difficulty,'height':height, 'payouts':payouts, 'flash':True, 'message':msg})
 

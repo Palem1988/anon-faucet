@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from pyZcash.rpc.ZDaemon import *
+from pyZcash.pyZcash.rpc.ZDaemon import *
 
 class Command(BaseCommand):
 	help = 'Sweeps coinbase rewards into first zaddr'
