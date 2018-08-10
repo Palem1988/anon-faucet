@@ -1,7 +1,7 @@
 import requests
 import json
 
-from pyZcash.settings import *
+from pyAnon.pyZcash.settings import *
 
 class ZDaemon(object):
 
@@ -29,7 +29,7 @@ class ZDaemon(object):
 		#TODO: deal with errors better.
 		error = resp['error']
 		if error:
-			print error
+			print(error)
 
 		return resp['result']
 
@@ -109,7 +109,7 @@ class ZDaemon(object):
 					addrs.append(utxo['address'])
 		for addr in addrs:
 			res = self._call('z_shieldcoinbase', addr, zaddr)
-			print res
+			print(res)
 
 	# zaddr methods
 	def z_gettotalbalance(self):
