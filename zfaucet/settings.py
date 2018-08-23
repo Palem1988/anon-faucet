@@ -30,8 +30,8 @@ print('settings environment is ' + ENVIRONMENT)
 #else:
 
 # These secrets are written by Ansible during provisioning.
-SECRET_KEY = ''
-DJANGO_POSTGRESQL_PASSWORD = ''
+SECRET_KEY = 'kevkey'
+DJANGO_POSTGRESQL_PASSWORD = '1029384756574839201'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ENVIRONMENT == 'dev'
@@ -150,5 +150,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = 
+STATIC_ROOT = ''
 

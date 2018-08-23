@@ -1,7 +1,7 @@
 import requests
 import json
 
-from pyAnon.pyZcash.settings import *
+from pyanon.pyZcash.settings import *
 
 class ZDaemon(object):
 

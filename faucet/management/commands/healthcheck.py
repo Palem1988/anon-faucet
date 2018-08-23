@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from faucet.models import HealthCheck
-from pyZcash.pyZcash.rpc.ZDaemon import *
+from pyanon.pyZcash.rpc.ZDaemon import *
 
 class Command(BaseCommand):
 	help = 'Updates blockchain health values shown on main page'
