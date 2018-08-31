@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'dev')
+ENVIRONMENT = os.getenv('DJANGO_ENVIRONMENT', 'prod')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -31,14 +31,14 @@ print('settings environment is ' + ENVIRONMENT)
 
 # These secrets are written by Ansible during provisioning.
 SECRET_KEY = 'kevkey'
-DJANGO_POSTGRESQL_PASSWORD = '1029384756574839201'
+DJANGO_POSTGRESQL_PASSWORD = 'b0930c148b6cfdce040361c87581d05a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ENVIRONMENT == 'dev'
 
 
 # production
-ALLOWED_HOSTS = ['faucet.testnet.z.cash', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -150,5 +150,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = ''
-
+STATIC_ROOT = '/opt/anon-faucet/anon-faucet/faucet/static'
