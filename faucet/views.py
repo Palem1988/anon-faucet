@@ -6,7 +6,7 @@ from django.utils import timezone
 import re
 from datetime import *
 
-from pyZcash.pyZcash.rpc.ZDaemon import *
+from pyanon.pyZcash.rpc.ZDaemon import *
 from faucet.models import *
 
 
